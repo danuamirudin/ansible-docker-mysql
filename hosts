@@ -1,0 +1,8 @@
+[databse]
+Write Your Target Servcer IP / DNS
+
+[docker]
+Write Your Target Servcer IP / DNS
+
+[hosts:vars]
+ansible_python_interpreter=/usr/bin/python3
