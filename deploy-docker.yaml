@@ -1,0 +1,21 @@
+- name: install docker with ansible
+  hosts: docker
+  become: yes
+  tasks:
+   - name: download docker.sh
+     shell: "curl -fsSL https://test.docker.com -o test-docker.sh"
+
+   - name: install docker
+     shell: "sh test-docker.sh"
+
+   - name: add group user to docker
+     shell: "sudo usermod -aG docker $USER"
+  
+   - name: start service docker
+     shell: "sudo service docker start"
+
+   - name: relogin user
+     shell: "id -g"
+
+   - name: running test container
+     shell: "docker run hello-world"
